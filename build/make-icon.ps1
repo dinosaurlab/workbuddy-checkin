@@ -1,5 +1,5 @@
 param(
-    [string]$OutIco = ".\work\workbuddy.ico",
+    [string]$OutIco = (Join-Path $PSScriptRoot "..\assets\workbuddy.ico"),
     [string]$PreviewPng = ""
 )
 

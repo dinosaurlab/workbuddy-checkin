@@ -66,7 +66,7 @@ powershell -ExecutionPolicy Bypass -File .\build\make-icon.ps1
 ## 目录结构
 
 ```
-WorkBuddy-AutoCheckin/
+workbuddy-checkin/
 ├── src/       C# 主程序源码 + 签到引擎脚本
 ├── build/     编译脚本、图标生成脚本
 ├── assets/    图标资源
