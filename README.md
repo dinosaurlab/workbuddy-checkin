@@ -22,7 +22,7 @@
 
 ## 快速开始
 
-1. 从 [Releases](https://github.com/dinasourlab/workbuddy-checkin/releases) 下载 `WorkBuddy-AutoCheckin-App.exe`（或自行编译，见下文）；
+1. 从 [Releases](https://github.com/dinosaurlab/workbuddy-checkin/releases) 下载 `WorkBuddy-AutoCheckin-App.exe`（或自行编译，见下文）；
 2. 双击运行，设置签到时间，点「保存设置」；
 3. 点窗口右上角 ✕ 最小化到托盘，到点自动签到。
 
@@ -85,4 +85,4 @@ workbuddy-checkin/
 
 ## 许可证
 
-[MIT](LICENSE) © 2026 dinasourlab
+[MIT](LICENSE) © 2026 dinosaurlab
