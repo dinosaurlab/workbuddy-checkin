@@ -395,21 +395,29 @@ try {
                 Write-Log "真实运行时将自动点击左下角用户头像展开签到入口" "WARN"
                 exit 0
             }
-            $pt = Get-AvatarPoint $hwnd
             $avatarOk = $false
-            for ($attempt = 1; $attempt -le 3; $attempt++) {
-                Write-Log "尝试 $attempt/3 点击用户头像 ($($pt.X), $($pt.Y))..."
-                [void](Assert-Foreground $hwnd)
-                Click-Point $pt.X $pt.Y
-                Start-Sleep -Seconds 2
-                $state = Get-CheckinState (Get-ScreenOcrLines)
-                if ($state.Status -ne "none") {
-                    $avatarOk = $true
-                    break
+            for ($round = 1; $round -le 3; $round++) {
+                $pt = Get-AvatarPoint $hwnd
+                for ($attempt = 1; $attempt -le 3; $attempt++) {
+                    Write-Log "第 $round/3 轮：尝试 $attempt/3 点击用户头像 ($($pt.X), $($pt.Y))..."
+                    [void](Assert-Foreground $hwnd)
+                    Click-Point $pt.X $pt.Y
+                    Start-Sleep -Seconds 2
+                    $state = Get-CheckinState (Get-ScreenOcrLines)
+                    if ($state.Status -ne "none") {
+                        $avatarOk = $true
+                        break
+                    }
+                }
+                if ($avatarOk) { break }
+                if ($round -lt 3) {
+                    Write-Log "本轮未识别到签到入口，等待 10 秒后重试..." "WARN"
+                    Start-Sleep -Seconds 10
+                    [void](Assert-Foreground $hwnd)
                 }
             }
             if (-not $avatarOk) {
-                Write-Log "点击头像后仍未识别到签到入口，请用 -Calibrate 校准头像坐标" "WARN"
+                Write-Log "多轮重试后仍未识别到签到入口，请用 -Calibrate 校准头像坐标，或确认 WorkBuddy 已登录" "WARN"
                 exit 1
             }
         }
