@@ -13,9 +13,9 @@ using Microsoft.Win32;
 [assembly: AssemblyTitle("WorkBuddy 自动签到")]
 [assembly: AssemblyProduct("WorkBuddy 自动签到")]
 [assembly: AssemblyDescription("WorkBuddy 每日自动签到小工具（OCR 自动签到）")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
-[assembly: AssemblyInformationalVersion("1.0.1")]
+[assembly: AssemblyVersion("1.0.2.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
+[assembly: AssemblyInformationalVersion("1.0.2")]
 
 namespace WorkBuddyApp
 {
@@ -322,7 +322,7 @@ namespace WorkBuddyApp
 
             notify = new NotifyIcon();
             notify.Icon = LoadAppIcon();
-            notify.Text = "WorkBuddy 自动签到 v1.01";
+            notify.Text = "WorkBuddy 自动签到 v1.02";
             notify.Visible = true;
 
             var trayMenu = new ContextMenuStrip();
